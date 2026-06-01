@@ -17,7 +17,6 @@ O site foi desenvolvido para apresentar de forma clara e objetiva a proposta de 
 - HTML
 - CSS
 - JavaScript
-- (adicione outras tecnologias utilizadas)
 
 ## 📁 Estrutura do Projeto
 
@@ -33,12 +32,12 @@ O site foi desenvolvido para apresentar de forma clara e objetiva a proposta de 
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/plataforma-arvore/landing_page_arvore.git
    ```
 
 2. Acesse a pasta do projeto:
    ```bash
-   cd seu-repositorio
+   cd landing_page_arvore
    ```
 
 3. Abra o arquivo `index.html` no navegador.
