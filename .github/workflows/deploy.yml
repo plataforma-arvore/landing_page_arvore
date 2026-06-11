@@ -13,6 +13,13 @@ jobs:
       - name: Checkout do código
         uses: actions/checkout@v4
 
+      - name: Configurar chave SSH
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
       - name: Debug chave SSH
         run: |
           echo "--- Primeiros caracteres da chave ---"
@@ -21,13 +28,6 @@ jobs:
           tail -1 ~/.ssh/id_rsa
           echo "--- Verificando formato ---"
           ssh-keygen -l -f ~/.ssh/id_rsa || echo "CHAVE INVÁLIDA"
-
-      - name: Configurar chave SSH
-        run: |
-          mkdir -p ~/.ssh
-          printf '%s\n' "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy via rsync
         run: |
